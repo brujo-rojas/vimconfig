@@ -2,6 +2,10 @@
 "               http://github.com/grigio/vim-sublime
 " Best view with a 256 color terminal and Powerline fonts
 
+"para recargar el vimrc desde el mismo archivo, usar :so %
+" ayuda : http://dougblack.io/words/a-good-vimrc.html
+
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -25,10 +29,14 @@ Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
 Plugin 'severin-lemaignan/vim-minimap'
 
+Plugin 'scrooloose/nerdtree'
+nmap <C-k><C-b> :NERDTreeToggle<CR>
 
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
+
 colorscheme Monokai
+" colorscheme badwolfi
 
 """"""""
 if has('autocmd')
@@ -52,6 +60,7 @@ set shiftround
 set ttimeout
 set ttimeoutlen=50
 
+" busqueda en tiempo real
 set incsearch
 " Use <C-L> to clear the highlighting of :set hlsearch.
 if maparg('<C-L>', 'n') ==# ''
@@ -66,13 +75,17 @@ set wildmenu
 set autoread
 
 set encoding=utf-8
+" tabs de 2 espacios, no tabs, sino espacios
 set tabstop=2 shiftwidth=2 expandtab
 set listchars=tab:▒░,trail:▓
 set list
 
 inoremap <C-U> <C-G>u<C-U>
 
+" muestra numeros
 set number
+
+"highlight a la busqueda
 set hlsearch
 set ignorecase
 set smartcase
@@ -103,6 +116,14 @@ set completeopt=menuone,longest,preview
 "
 
 " CtrlP
+
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+" comando para optimizar la busqueda, intalar silversearcher-ag
+" con esto se puede usar un .agignore
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
 
 let g:ctrlp_custom_ignore = {
@@ -188,4 +209,4 @@ nnoremap <leader>s :mksession!<CR> " type ',s' to save the buffers etc. Reopen w
 "para abrir el .vimrc mas rapidamente
 nnoremap <leader>ev :vsp $MYVIMRC<CR> " type,evto edit the Vimrc
 
-
+set nocursorline          " highlight current line
