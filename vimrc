@@ -207,6 +207,4 @@ endif
 nnoremap <leader>s :mksession!<CR> " type ',s' to save the buffers etc. Reopen where you were with Vim with 'vim -S'
 
 "para abrir el .vimrc mas rapidamente
-nnoremap <leader>ev :vsp $MYVIMRC<CR> " type,evto edit the Vimrc
-
-set nocursorline          " highlight current line
+nnoremap <leader>ev :vsp ~/.vim/vimrc<CR> " type,evto edit the Vimrc
