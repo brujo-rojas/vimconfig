@@ -20,7 +20,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 set shell=/bin/bash
 
-set nofoldenable
+
+
+
 
 
 Bundle 'tpope/vim-surround'
@@ -159,17 +161,19 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/* 
 
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'file': '\.exe$\|\.so$\|\.dat$'
+  \ }
+
+
 
 " Ultisnip
 " NOTE: <f1> otherwise it overrides <tab> forever
-
-"http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-"" YouCompleteMe
-let g:ycm_key_list_previous_completion=['<Up>']
-
-"" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsListSnippets="<c-s-tab>"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:did_UltiSnips_vim_after = 1
 
 let g:UltiSnipsSnippetsDir="~/.vim/vimSnippets/angular-vim-snippets/UltiSnips/"
 
@@ -193,7 +197,15 @@ vmap <C-m> gc
 let g:tcomment#replacements_xml={}
 " Text wrap simpler, then type the open tag or ',"
 vmap <C-w> S
-
+" Cut, Paste, Copy
+vmap <C-x> d
+vmap <C-v> p
+vmap <C-c> y
+" Undo, Redo (broken)
+nnoremap <C-z>  :undo<CR>
+inoremap <C-z>  <Esc>:undo<CR>
+nnoremap <C-y>  :redo<CR>
+inoremap <C-y>  <Esc>:redo<CR>
 " Tabs
 let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1

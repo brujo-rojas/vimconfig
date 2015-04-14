@@ -1,0 +1,3 @@
+[submodule "vimUltiSnippets/angular-vim-snippets"]
+	path = vimUltiSnippets/angular-vim-snippets
+	url = git@github.com:matthewsimo/angular-vim-snippets.git
