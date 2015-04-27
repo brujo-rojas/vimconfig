@@ -3,3 +3,6 @@ This is my Vim config.
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 runtime vimrc
+
+
+basado en https://github.com/grigio/vim-sublime
