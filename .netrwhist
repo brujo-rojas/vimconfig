@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/var'
-let g:netrw_dirhist_2='/'
-let g:netrw_dirhist_3='/var'
-let g:netrw_dirhist_4='/'
-let g:netrw_dirhist_5='/var'
-let g:netrw_dirhist_6='/'
-let g:netrw_dirhist_7='/home/brujo/.vim'
-let g:netrw_dirhist_8='/run'
-let g:netrw_dirhist_9='/home/brujo/.vim'
+let g:netrw_dirhist_cnt =0

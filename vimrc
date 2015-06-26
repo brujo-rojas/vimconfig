@@ -40,8 +40,12 @@ Plugin 'severin-lemaignan/vim-minimap'
 
 Plugin 'scrooloose/nerdtree'
 
-Bundle 'Valloric/YouCompleteMe'
+"https://github.com/kwaledesign/scss-snippets
+Bundle 'kwaledesign/scss-snippets'
 
+" Bundle 'Valloric/YouCompleteMe'
+
+" Bundle 'ervandew/supertab'
 
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
@@ -60,6 +64,7 @@ Bundle 'pangloss/vim-javascript'
 " http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 Plugin 'jelera/vim-javascript-syntax'
 
+" Plugin 'Yggdroot/indentLine'
 filetype plugin indent on 
 
 
@@ -165,11 +170,15 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 "http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
 "" YouCompleteMe
-let g:ycm_key_list_previous_completion=['<Up>']
-
 "" Ultisnips
-let g:UltiSnipsExpandTrigger="<c-tab>"
-let g:UltiSnipsListSnippets="<c-s-tab>"
+" make YCM compatible with UltiSnips (using supertab)
+
+let g:UltiSnipsExpandTrigger="<f1>"
+let g:UltiSnipsJumpForwardTrigger="<f1>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:did_UltiSnips_vim_after = 1
+
+
 
 let g:UltiSnipsSnippetsDir="~/.vim/vimSnippets/angular-vim-snippets/UltiSnips/"
 
@@ -183,7 +192,7 @@ let g:airline_powerline_fonts = 1
 "
 
 " Find
-map <C-f> /
+" map <C-f> /
 " indend / deindent after selecting the text with (⇧ v), (.) to repeat.
 " vnoremap <Tab> >
 " vnoremap <S-Tab> <
@@ -259,3 +268,22 @@ let g:netrw_liststyle=3
 " tabulacion
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+
+" http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
+cmap w!! w !sudo tee > /dev/null %
+
+
+
+" " https://github.com/Yggdroot/indentLine
+" " Vim
+" let g:indentLine_color_term = 239
+"
+" "GVim
+" let g:indentLine_color_gui = '#A4E57E'
+"
+" " none X terminal
+" let g:indentLine_color_tty_light = 7 " (default: 4)
+" let g:indentLine_color_dark = 1 " (default: 2)
+"
+" let g:indentLine_char = '︙'
+"
