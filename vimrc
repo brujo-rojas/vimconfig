@@ -6,11 +6,6 @@
 " ayuda : http://dougblack.io/words/a-good-vimrc.html
 
 
-" Install Valloric/YouCompleteMe
-" http://christopherpoole.github.io/setting-up-vim-with-YouCompleteMe/
-
-
-
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -27,26 +22,26 @@ Bundle 'tpope/vim-surround'
 Bundle 'gcmt/breeze.vim'
 " ¿Cual sera la diferencia con ctrlpvim/ctrlp
 Bundle 'kien/ctrlp.vim' 
-Bundle 'SirVer/ultisnips'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+"Plugin 'ervandew/snipmate.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
-Plugin 'severin-lemaignan/vim-minimap'
+
 
 Plugin 'scrooloose/nerdtree'
 
-"https://github.com/kwaledesign/scss-snippets
-Bundle 'kwaledesign/scss-snippets'
+Bundle 'ervandew/supertab'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'SirVer/ultisnips'
 
-" Bundle 'Valloric/YouCompleteMe'
 
-" Bundle 'ervandew/supertab'
+"%Bundle 'kwaledesign/scss-snippets'
+
 
 " Color Themes
 Bundle 'flazz/vim-colorschemes'
@@ -77,6 +72,8 @@ let g:local_vimrc = {'names':['.lvimrc'],'hash_fun':'LVRHashOfFile'}
 
 
 Plugin 'MarcWeber/vim-addon-local-vimrc'
+Plugin 'matthewsimo/angular-vim-snippets'
+
 
 "cambio de NERDTreeToggle con compando de sublime
 nmap <C-k><C-b> :NERDTreeToggle<CR>
@@ -94,14 +91,7 @@ let g:NERDTreeWinSize = 30
 
 
 
-" colorscheme Monokai
-" colorscheme badwolf
-" colorscheme lucario
- colorscheme molokai
-" let g:molokai_original=1
-" let g:rehash256 = 1
- set t_Co=256
-
+ colorscheme Monokai
 
 """"""""
 
@@ -254,24 +244,22 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 " Ultisnip
 " NOTE: <f1> otherwise it overrides <tab> forever
 
-"http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-"" YouCompleteMe
-"" Ultisnips
+"http://stackoverflow.com/questions/14896327/ultisnips-and-youcompletem
+
+
 " make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
-let g:UltiSnipsExpandTrigger="<f1>"
-let g:UltiSnipsJumpForwardTrigger="<f1>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:did_UltiSnips_vim_after = 1
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" snippets -- investigar estos metodos
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" let g:UltiSnipsEditSplit="vertical"
-"
 
-let g:UltiSnipsSnippetsDir="~/.vim/vimSnippets/angular-vim-snippets/UltiSnips/"
+
+let g:UltiSnipsSnippetsDirectories=["~/.vim/UltiSnips"]
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
@@ -361,8 +349,8 @@ nnoremap <C-Up> :m-1<CR>
 let g:netrw_liststyle=3
 
 " tabulacion
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+vmap <tab> >gv
+vmap <s-tab> <gv
 
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
 cmap w!! w !sudo tee > /dev/null %
