@@ -12,10 +12,12 @@ set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/vimSnippets/angular-vim-snippets/snippets/
 
 call vundle#rc()
+
 Bundle 'gmarik/vundle'
 set shell=/bin/bash
 
 set nofoldenable
+set encoding=utf-8
 
 "TODO investigar como usar vim-surround
 Bundle 'tpope/vim-surround' 
@@ -36,8 +38,12 @@ Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 
 Bundle 'ervandew/supertab'
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
+
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 
 
 "%Bundle 'kwaledesign/scss-snippets'
@@ -47,6 +53,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'tomasr/molokai'
 Bundle 'tristen/vim-sparkup'
+Bundle 'joshdick/onedark.vim'
 
 " https://github.com/nanotech/jellybeans.vim
 Bundle 'nanotech/jellybeans.vim'
@@ -56,9 +63,11 @@ Bundle 'tpope/vim-vividchalk'
 
 " https://github.com/pangloss/vim-javascript
 " Bundle 'pangloss/vim-javascript'
+" esto ayuda al folding en javascript
 
 " http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
-" Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jelera/vim-javascript-syntax'
+" mejora vista de sintaxis en javascript
 
 " https://github.com/othree/javascript-libraries-syntax.vim
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -75,6 +84,16 @@ Plugin 'MarcWeber/vim-addon-local-vimrc'
 Plugin 'matthewsimo/angular-vim-snippets'
 
 
+"arbol de cambios
+Plugin 'mbbill/undotree' 
+Plugin 'tpope/vim-fugitive'
+
+"incomodo
+"Plugin 'spf13/vim-autoclose'
+
+nmap <C-k><C-v> :UndotreeToggle<CR>
+
+
 "cambio de NERDTreeToggle con compando de sublime
 nmap <C-k><C-b> :NERDTreeToggle<CR>
 let g:NERDTreeChDirMode=2
@@ -87,13 +106,19 @@ let g:NERDTreeWinSize = 30
 
 
 
+colorscheme molokai
+let g:molokai_original = 0
+let g:rehash256 = 1
+let g:monokai_transparent = 1
 
 
 
 
- colorscheme Monokai
 
-""""""""
+
+
+
+
 
 "" Encoding
 set encoding=utf-8
@@ -107,9 +132,7 @@ set fileencodings=utf-8
 if has('autocmd')
   filetype plugin indent on
 endif
-if has('syntax') && !exists('g:syntax_on')
-  syntax enable
-endif
+syntax enable
 
 " Use :help 'option' to see the documentation for the given option.
 set autoindent
@@ -175,10 +198,6 @@ endif
 " ??
 set mousemodel=popup
 
-"" Disable the blinking cursor. // TESTING
-set gcr=a:blinkon0
-set scrolloff=3
-
 
 " do not history when leavy buffer
 set hidden
@@ -211,6 +230,7 @@ cnoreabbrev wQ wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
+cnoreabbrev Qa qa
 cnoreabbrev Qall qall
 
 
@@ -248,9 +268,9 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -289,17 +309,20 @@ let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1
 nnoremap <C-b>  :tabprevious<CR>
 inoremap <C-b>  <Esc>:tabprevious<CR>i
+
 nnoremap <C-n>  :tabnext<CR>
 inoremap <C-n>  <Esc>:tabnext<CR>i
+
 nnoremap <C-t>  :tabnew<CR>
 inoremap <C-t>  <Esc>:tabnew<CR>i
+
 nnoremap <C-k>  :tabclose<CR>
 inoremap <C-k>  <Esc>:tabclose<CR>i
 
 
+nnoremap <A-a> <C-a>
+nnoremap <A-x> <C-x>
 
-" lazy ':' // no lo uso
-" map \ :
 
 let mapleader = ','
 nnoremap <Leader>p :set paste<CR>
@@ -330,7 +353,6 @@ endif
 nnoremap <leader>s :mksession!<CR> " type ',s' to save the buffers etc. Reopen where you were with Vim with 'vim -S'
 
 "para abrir el .vimrc mas rapidamente
-
 nnoremap <leader>ev :vsp ~/.vim/vimrc<CR> " type,evto edit the Vimrc
 
 " ctrl + shift abajo y arriba para mover una linea
@@ -348,8 +370,8 @@ nnoremap <C-Up> :m-1<CR>
 
 let g:netrw_liststyle=3
 
-" tabulacion
-vmap <tab> >gv
+" tabulacion - funciona bien en linux - problemas en mac
+vmap <TAB> >gv
 vmap <s-tab> <gv
 
 " http://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work
@@ -371,3 +393,13 @@ cmap w!! w !sudo tee > /dev/null %
 " let g:indentLine_char = '︙'
 
 " au FileType javascript call JavaScriptFold()
+
+
+
+ "NeoVim handles ESC keys as alt+key, set this to solve the problem
+  if has('nvim')
+     set ttimeout
+     set ttimeoutlen=0
+  endif
+
+set diffopt+=vertical " Gdiff vertical
