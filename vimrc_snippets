@@ -1,0 +1,18 @@
+" Ultisnip
+" NOTE: <f1> otherwise it overrides <tab> forever
+
+"http://stackoverflow.com/questions/14896327/ultisnips-and-youcompletem
+
+
+" make YCM compatible with UltiSnips (using supertab)
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+" let g:UltiSnipsExpandTrigger = "<C-tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<C-tab>"
+" let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+"
+" let g:UltiSnipsSnippetsDirectories=["~/.vim/UltiSnips"]
+"
