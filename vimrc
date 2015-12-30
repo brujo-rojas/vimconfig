@@ -17,19 +17,16 @@ Bundle 'gmarik/vundle'
 set shell=/bin/bash
 
 set nofoldenable
-set encoding=utf-8
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'bling/vim-airline'
 Bundle 'airblade/vim-gitgutter'
 
-"Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'ervandew/snipmate.vim'
-Plugin 'honza/vim-snippets'
-" Plugin 'SirVer/ultisnips'
-Plugin 'matthewsimo/angular-vim-snippets'
 
+" Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'matthewsimo/angular-vim-snippets'
 
 Plugin 'mattn/emmet-vim'
 
@@ -46,12 +43,7 @@ Plugin 'Shougo/neosnippet-snippets'
 
 
 " Color Themes
-Bundle 'flazz/vim-colorschemes'
 Bundle 'tomasr/molokai'
-Bundle 'tristen/vim-sparkup'
-Bundle 'joshdick/onedark.vim'
-
-
 
 " http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 Plugin 'jelera/vim-javascript-syntax'
