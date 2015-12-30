@@ -34,6 +34,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
 
+Plugin 'kchmck/vim-coffee-script'
 
 Plugin 'scrooloose/nerdtree'
 
@@ -47,6 +48,10 @@ Plugin 'plasticboy/vim-markdown'
 
 
 "%Bundle 'kwaledesign/scss-snippets'
+Plugin 'Shougo/neocomplete'
+
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 
 
 " Color Themes
@@ -111,6 +116,8 @@ let g:molokai_original = 0
 let g:rehash256 = 1
 let g:monokai_transparent = 1
 
+"solarized
+"let g:solarized_termcolors=256
 
 
 
@@ -307,11 +314,6 @@ vmap <C-w> S
 " Tabs
 let g:airline_theme='badwolf'
 let g:airline#extensions#tabline#enabled = 1
-nnoremap <C-b>  :tabprevious<CR>
-inoremap <C-b>  <Esc>:tabprevious<CR>i
-
-nnoremap <C-n>  :tabnext<CR>
-inoremap <C-n>  <Esc>:tabnext<CR>i
 
 nnoremap <C-t>  :tabnew<CR>
 inoremap <C-t>  <Esc>:tabnew<CR>i
