@@ -1,1 +1,1 @@
-/home/brujo/.vimrc
+/home/brujo/.vim/vimrc

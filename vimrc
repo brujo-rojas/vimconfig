@@ -43,6 +43,7 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'plasticboy/vim-markdown'
 
+Plugin 'Shougo/deocomplete'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
