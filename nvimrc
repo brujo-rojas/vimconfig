@@ -13,19 +13,15 @@ set rtp+=~/.vim/vimSnippets/angular-vim-snippets/snippets/
 
 call vundle#rc()
 
-Plugin 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 set shell=/bin/bash
 
 set nofoldenable
 
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
-
-Plugin 'kien/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'bling/vim-airline'
-Plugin 'airblade/vim-gitgutter'
+Bundle 'kien/ctrlp.vim'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'bling/vim-airline'
+Bundle 'airblade/vim-gitgutter'
 
 "http://www.vim.org/scripts/script.php?script_id=2940
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -38,8 +34,8 @@ Plugin 'mattn/emmet-vim'
 
 Plugin 'scrooloose/nerdtree'
 
-" Plugin 'ervandew/supertab'
-" Plugin 'Valloric/YouCompleteMe'
+" Bundle 'ervandew/supertab'
+" Bundle 'Valloric/YouCompleteMe'
 
 Plugin 'plasticboy/vim-markdown'
 
@@ -49,8 +45,7 @@ Plugin 'Shougo/neosnippet-snippets'
 
 
 " Color Themes
-Plugin 'tomasr/molokai'
-
+Bundle 'tomasr/molokai'
 
 " http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 Plugin 'jelera/vim-javascript-syntax'
@@ -64,7 +59,7 @@ let g:used_javascript_libs = 'angularjs,jquery'
 
 
 "https://github.com/chrisgillis/vim-bootstrap3-snippets
-Plugin 'chrisgillis/vim-bootstrap3-snippets'
+Bundle 'chrisgillis/vim-bootstrap3-snippets'
 let g:local_vimrc = {'names':['.lvimrc'],'hash_fun':'LVRHashOfFile'}
 
 
@@ -94,6 +89,7 @@ let g:NERDTreeWinSize = 20
 colorscheme molokai
 let g:molokai_original = 0
 let g:rehash256 = 1
+let g:monokai_transparent = 1
 
 
 
@@ -178,6 +174,7 @@ map Q gq
 if has('mouse')
   set mouse=a
 endif
+" ??
 set mousemodel=popup
 
 
@@ -210,7 +207,6 @@ cnoreabbrev Wq wq
 cnoreabbrev Wa wa
 cnoreabbrev wQ wq
 cnoreabbrev WQ wq
-cnoreabbrev qw wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qa qa
@@ -299,8 +295,8 @@ endif
 nnoremap <leader>s :mksession!<CR> " type ',s' to save the buffers etc. Reopen where you were with Vim with 'vim -S'
 
 "para abrir el .vimrc mas rapidamente
-nnoremap <leader>ev :vsp ~/.vim/vimrc<CR> " type ,ev to edit the Vimrc
-nnoremap <leader>er :so ~/.vim/vimrc<CR> " refresh vimrc
+nnoremap <leader>ev :vsp ~/.vim/vimrc<CR> " type,evto edit the Vimrc
+
 
 " --------------------------
 " ----- custom commands ----
@@ -331,16 +327,11 @@ cmap w!! w !sudo tee > /dev/null %
 "Gdiff vertical
 set diffopt+=vertical " Gdiff vertical
 
-vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
 
-if has("gui_running")
-  "Gvim
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  set gfn=Hack\ 10
-else
-  "else
-endif
+
+
+
+
 
 
 

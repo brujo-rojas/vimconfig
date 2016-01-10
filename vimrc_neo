@@ -37,8 +37,8 @@ endfunction
 
 
 " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<C-R>=UltiSnips#ExpandSnippet()"
 
 " <C-h>, <BS>: close popup and delete backword char.
 
@@ -84,9 +84,9 @@ endif
 
 
 " Plugin key-mappings.
-imap <tab>     <Plug>(neosnippet_expand_or_jump)
-smap <tab>     <Plug>(neosnippet_expand_or_jump)
-xmap <tab>     <Plug>(neosnippet_expand_target)
+imap <C-l>     <Plug>(neosnippet_expand_or_jump)
+smap <C-l>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-l>     <Plug>(neosnippet_expand_target)
 
 
 " smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
