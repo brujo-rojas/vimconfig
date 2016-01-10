@@ -101,7 +101,7 @@ let g:rehash256 = 1
 
 
 runtime vimrc_snippets
-runtime vimrc_neo
+runtime vimrc_deo
 
 "" Encoding
 set encoding=utf-8
