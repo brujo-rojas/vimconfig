@@ -43,7 +43,6 @@ Plugin 'scrooloose/nerdtree'
 
 Plugin 'plasticboy/vim-markdown'
 
-Plugin 'Shougo/deocomplete'
 Plugin 'Shougo/neocomplete'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
@@ -155,8 +154,12 @@ set list
 inoremap <C-U> <C-G>u<C-U>
 
 " muestra numeros
-set number
+" set number
 
+set number
+set cursorline
+autocmd InsertEnter * :set norelativenumber
+autocmd InsertLeave * :set relativenumber
 
 
 ""BUSQUEDAS -------------
@@ -336,7 +339,7 @@ vmap <C-c> :<Esc>`>a<CR><Esc>mx`<i<CR><Esc>my'xk$v'y!xclip -selection c<CR>u
 
 if has("gui_running")
   "Gvim
-  set guioptions-=m  "remove menu bar
+  " set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set gfn=Hack\ 10
 else
