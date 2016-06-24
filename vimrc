@@ -32,18 +32,32 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 
 " Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'matthewsimo/angular-vim-snippets'
+" Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'kashiro/vim-angular-snippets'
 
 Plugin 'mattn/emmet-vim'
 
 Plugin 'scrooloose/nerdtree'
 
-" Plugin 'ervandew/supertab'
+Plugin 'godlygeek/tabular'
+
+Plugin 'ervandew/supertab'
 " Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'plasticboy/vim-markdown'
 
-Plugin 'Shougo/neocomplete'
+
+Plugin 'gregsexton/MatchTag'
+Plugin 'luochen1990/rainbow'
+
+"
+"
+" Plugin 'craigemery/vim-autotag'
+" Plugin 'majutsushi/tagbar'
+" nmap <leader>t :TagbarToggle<CR>
+" nnoremap <leader>jt :! jsctags -o components shared<CR>
+
+" Plugin 'Shougo/deoplete.nvim'
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
 
@@ -51,15 +65,51 @@ Plugin 'Shougo/neosnippet-snippets'
 " Color Themes
 Plugin 'tomasr/molokai'
 
+Plugin 'scrooloose/syntastic'
+let g:syntastic_javascript_checkers = ['jshint']
 
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=0
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+
+
+
+" mejora vista de sintaxis en javascript
 " http://oli.me.uk/2013/06/29/equipping-vim-for-javascript/
 Plugin 'jelera/vim-javascript-syntax'
-" mejora vista de sintaxis en javascript
 
 " https://github.com/othree/javascript-libraries-syntax.vim
+Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'othree/yajs.vim'
-let g:used_javascript_libs = 'angularjs,jquery'
+Plugin 'othree/html5.vim'
+
+" https://github.com/pangloss/vim-javascript
+Plugin 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
+
+
+
+
+let g:used_javascript_libs = 'angularjs,jquery,angularui, angularuirouter'
+
+
 
 
 
@@ -71,11 +121,13 @@ let g:local_vimrc = {'names':['.lvimrc'],'hash_fun':'LVRHashOfFile'}
 
 
 "arbol de cambios
-Plugin 'mbbill/undotree' 
-nmap <C-k><C-v> :UndotreeToggle<CR>
+" Plugin 'mbbill/undotree' 
+" nmap <C-k><C-v> :UndotreeToggle<CR>
 
 
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'Yggdroot/indentLine'
 
 
 
@@ -95,6 +147,32 @@ colorscheme molokai
 let g:molokai_original = 0
 let g:rehash256 = 1
 
+
+
+" rainbow
+let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+  let g:rainbow_conf = {
+    \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+    \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+    \   'operators': '_,\|+\|-\|*\|\/\|===\|!==_',
+    \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+    \   'separately': {
+    \       '*': {
+    \       },
+    \       'tex': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+    \       },
+    \       'vim': {
+    \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+    \       },
+    \       'html': 0,
+    \       'css':{
+    \        'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold']
+    \       }
+    \   }
+    \}
+
+  if exists(':RainbowToggleOn') | exe "RainbowToggleOn" | endif
 
 
 
@@ -224,7 +302,9 @@ cnoreabbrev Qall qall
 
 
 
-
+set colorcolumn=100
+let g:indentLine_color_term = 239
+let g:indentLine_enabled = 1
 
 
 
