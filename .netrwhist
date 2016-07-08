@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/brujo/.vim/bundle'
-let g:netrw_dirhist_2='/home/brujo/.vim/bundle/ultisnips'
-let g:netrw_dirhist_3='/home/brujo'
-let g:netrw_dirhist_4='/home/brujo/.vim/bundle/vim-bootstrap3-snippets'
-let g:netrw_dirhist_5='/home/brujo/.vim/bundle/vim-bootstrap3-snippets/snippets'
-let g:netrw_dirhist_6='/home/brujo'
-let g:netrw_dirhist_7='/home/brujo/.vim/bundle/vim-bootstrap3-snippets/neosnippets'
-let g:netrw_dirhist_8='/home/brujo'
-let g:netrw_dirhist_9='/home/brujo/.vim/bundle/vim-bootstrap3-snippets/snippets'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home'
+let g:netrw_dirhist_2='/home/brujo'
+let g:netrw_dirhist_3='/home/brujo/dev'

@@ -1,0 +1,12 @@
+" python3 plugins
+call remote#host#RegisterPlugin('python3', '/home/brujo/.config/nvim/rplugin/python3/deoplete', [
+      \ {'sync': 1, 'name': 'DeopleteInitializePython', 'opts': {}, 'type': 'command'},
+     \ ])
+
+
+" ruby plugins
+
+
+" python plugins
+
+
