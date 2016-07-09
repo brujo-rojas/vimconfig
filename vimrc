@@ -4,6 +4,7 @@
 
 "para recargar el vimrc desde el mismo archivo, usar :so %
 " ayuda : http://dougblack.io/words/a-good-vimrc.html
+"
 
 
 set nocompatible
